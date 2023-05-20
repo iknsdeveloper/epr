@@ -9,7 +9,7 @@ export default function Home() {
         <p>NEXT_PUBLIC_API_URL {process.env.NEXT_PUBLIC_API_URL} </p>
 
 
-        <p>{`${process.env.NEXT_PUBLIC_API_URL}/api/register`}</p>
+        <p>{`${process.env.NEXTAUTH_URL_INTERNAL}/api/register`}</p>
 
       </div>
 

@@ -44,6 +44,7 @@ const handler = NextAuth({
             }
         })
     ],
+    secret:process.env.JWT_SECRET,
     pages: {
         signIn: '/login'
     },
