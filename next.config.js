@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    // appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
 },
 images: {
@@ -9,13 +9,13 @@ images: {
         { hostname: 'res.cloudinary.com', protocol: 'https', port: '' }
     ]
 },
-webpack(config) {
+ webpack(config) {
     config.experiments = {
-        ...config.experiments,
-        topLevelAwait: true,
-    }
-    return config
-  }
+      ...config.experiments,
+      topLevelAwait: true, // enable top-level-await experiment
+    };
+    return config;
+  },
 }
 
 module.exports = nextConfig
