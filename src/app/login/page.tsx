@@ -30,7 +30,7 @@ const Login = () => {
             const res = await signIn('credentials', { email, password, redirect: false })
 
             if (res?.error == null) {
-                router.push("/")
+                router.push("/dashboard/queue")
             } else {
                 toast.error("Error occured while logging")
             }

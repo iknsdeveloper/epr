@@ -33,7 +33,9 @@ const Navbar = () => {
                     <div className={classes.dropdown}>
                       <AiOutlineClose className={classes.closeIcon} onClick={handleHideDropdown} />
                       <button onClick={() => {signOut(); handleHideDropdown()}} className={classes.logout}>Logout</button>
-                      <Link onClick={handleHideDropdown} href='/create-blog' className={classes.create}>Create</Link>
+                      <Link onClick={handleHideDropdown} href='/' className={classes.create}>Create</Link>
+                      <Link href='/dashboard/queue'>Dashbopard</Link>
+
                     </div>
                   )}
                 </div>
@@ -42,6 +44,8 @@ const Navbar = () => {
                 <>
                   <button onClick={() => {signIn()}} className={classes.login}>Log in</button>
                   <Link href='/register'>Register</Link>
+                  <Link href='/dashboard/queue'>Dashbopard</Link>
+
                 </>
               )
           }

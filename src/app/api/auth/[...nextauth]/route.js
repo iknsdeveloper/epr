@@ -4,8 +4,9 @@ import User from "@/models/User";
 import { signJwtToken } from "@/lib/jwt";
 import bcrypt from 'bcrypt'
 import db from "@/lib/db";
+import jwt from "jsonwebtoken"
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         CredentialsProvider({
             type: 'credentials',
@@ -48,6 +49,14 @@ const handler = NextAuth({
     pages: {
         signIn: '/login'
     },
+    jwt: {
+        async encode({ secret, token }) {
+          return jwt.sign(token, secret)
+        },
+        async decode({ secret, token }) {
+          return jwt.verify(token, secret)
+        },
+      },
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
@@ -66,6 +75,8 @@ const handler = NextAuth({
             return session
         }
     }
-})
+}
+
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
