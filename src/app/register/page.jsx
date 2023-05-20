@@ -25,7 +25,7 @@ const Register = () => {
     }
 
     try {
-        const res = await fetch('https://app.ikns.info/api/register', {
+        const res = await fetch('/api/register', {
             headers: {
                 'Content-Type': 'application/json'
             },
