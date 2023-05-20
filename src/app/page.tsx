@@ -10,7 +10,7 @@ export default function Home() {
 
 
         <p>{process.env.NEXTAUTH_URL_INTERNAL}/api/register</p>
-
+        <p>Version 1.0</p>
       </div>
 
 
