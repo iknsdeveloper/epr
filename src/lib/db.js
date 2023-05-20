@@ -13,10 +13,10 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  
+  //Added in runbuild
   const uri = process.env.MONGO_URI;
   const db = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  // const db = await mongoose.connect(process.env.MONGO_URI);//Fix AWS
+  // const db = await mongoose.connect(process.env.MONGO_URI);
   connection.isConnected = db.connections[0].readyState;
 }
 
