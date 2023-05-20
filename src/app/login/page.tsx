@@ -13,7 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const router = useRouter()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
 
         if (password === '' || email === '') {
