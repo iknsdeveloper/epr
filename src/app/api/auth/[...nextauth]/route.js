@@ -10,17 +10,17 @@ const handler = NextAuth({
         CredentialsProvider({
             type: 'credentials',
             credentials: {
-                username: {label: 'Email', type: 'text', placeholder: 'John Doe'},
-                password: {label: 'Password', type: 'password'}
+                username: { label: 'Email', type: 'text', placeholder: 'John Doe' },
+                password: { label: 'Password', type: 'password' }
             },
-            async authorize(credentials, req){
-                const {email, password} = credentials
+            async authorize(credentials, req) {
+                const { email, password } = credentials
 
                 await db.connect()
-                                
+
                 const user = await User.findOne({ email })
 
-                if(!user){
+                if (!user) {
                     throw new Error("Invalid input")
                 }
 
@@ -29,12 +29,12 @@ const handler = NextAuth({
                 // 2 hashed password -> dasuytfygdsaidsaugydsaudsadsadsauads
                 const comparePass = await bcrypt.compare(password, user.password)
 
-                if(!comparePass){
+                if (!comparePass) {
                     throw new Error("Invalid input")
                 } else {
-                    const {password, ...currentUser} = user._doc
+                    const { password, ...currentUser } = user._doc
 
-                    const accessToken = signJwtToken(currentUser, {expiresIn: '6d'})
+                    const accessToken = signJwtToken(currentUser, { expiresIn: '6d' })
 
                     return {
                         ...currentUser,
@@ -44,21 +44,21 @@ const handler = NextAuth({
             }
         })
     ],
-    secret:process.env.NEXT_PUBLIC_SECRET,
+    secret: process.env.NEXT_PUBLIC_SECRET,
     pages: {
         signIn: '/login'
     },
     callbacks: {
-        async jwt({token, user}){
-            if(user){
+        async jwt({ token, user }) {
+            if (user) {
                 token.accessToken = user.accessToken
                 token._id = user._id
             }
 
             return token
         },
-        async session({session, token}){
-            if(token){
+        async session({ session, token }) {
+            if (token) {
                 session.user._id = token._id
                 session.user.accessToken = token.accessToken
             }
@@ -68,4 +68,4 @@ const handler = NextAuth({
     }
 })
 
-export {handler as GET, handler as POST}
+export { handler as GET, handler as POST }
