@@ -13,7 +13,10 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  const db = await mongoose.connect(process.env.MONGO_URI);//Fix AWS
+  
+  const uri = process.env.MONGO_URI;
+  const db = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  // const db = await mongoose.connect(process.env.MONGO_URI);//Fix AWS
   connection.isConnected = db.connections[0].readyState;
 }
 
