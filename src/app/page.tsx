@@ -6,10 +6,10 @@ export default function Home() {
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p>
           Domain&nbsp; {process.env.NEXTAUTH_URL}</p>
-        <p>NEXT_PUBLIC_API_URL {process.env.NEXT_PUBLIC_API_URL} </p>
+        <p>NEXT_PUBLIC_API_URL {process.env.NEXTAUTH_URL_INTERNAL} </p>
 
 
-        <p>{`${process.env.NEXTAUTH_URL_INTERNAL}/api/register`}</p>
+        <p>{process.env.NEXTAUTH_URL_INTERNAL}/api/register</p>
 
       </div>
 
