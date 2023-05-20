@@ -48,24 +48,24 @@ const handler = NextAuth({
     pages: {
         signIn: '/login'
     },
-    callbacks: {
-        async jwt({token, user}){
-            if(user){
-                token.accessToken = user.accessToken
-                token._id = user._id
-            }
+    // callbacks: {
+    //     async jwt({token, user}){
+    //         if(user){
+    //             token.accessToken = user.accessToken
+    //             token._id = user._id
+    //         }
 
-            return token
-        },
-        async session({session, token}){
-            if(token){
-                session.user._id = token._id
-                session.user.accessToken = token.accessToken
-            }
+    //         return token
+    //     },
+    //     async session({session, token}){
+    //         if(token){
+    //             session.user._id = token._id
+    //             session.user.accessToken = token.accessToken
+    //         }
 
-            return session
-        }
-    }
+    //         return session
+    //     }
+    // }
 })
 
 export {handler as GET, handler as POST}
