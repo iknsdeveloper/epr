@@ -7,47 +7,47 @@ import 'react-toastify/dist/ReactToastify.css'
 import classes from './register.module.css'
 
 const Register = () => {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
+    const handleSubmit = async (e: any) => {
+        e.preventDefault()
 
-    if(username === '' || email === '' || password === ''){
-        toast.error("Fill all fields")
-        return
-    }
-
-    if(password.length < 6){
-        toast.error("Password must be at least 6 characters")
-        return
-    }
-
-    try {
-        const res = await fetch('/api/register', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify({username, email, password})
-        })
-
-        console.log(await res.json())
-        if(res.ok){
-            toast.success("Successfully registered the user")
-            setTimeout(() => {
-                signIn()
-            }, 1500)
-            return
-        } else {
-            toast.error("Error occured while registering")
+        if (username === '' || email === '' || password === '') {
+            toast.error("Fill all fields")
             return
         }
-    } catch (error) {
-        console.log(error)
+
+        if (password.length < 6) {
+            toast.error("Password must be at least 6 characters")
+            return
+        }
+
+        try {
+            const res = await fetch('/api/register', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify({ username, email, password })
+            })
+
+            console.log(await res.json())
+            if (res.ok) {
+                toast.success("Successfully registered the user")
+                setTimeout(() => {
+                    signIn()
+                }, 1500)
+                return
+            } else {
+                toast.error("Error occured while registering")
+                return
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
-  }
 
     return (
         <div className={classes.container}>
