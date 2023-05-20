@@ -1,4 +1,4 @@
 Opensource
 
-[*] Install NextAuth
-[] Install Mongoose
+[*] Install NextAuth Package
+[*] Install Mongoose Package
