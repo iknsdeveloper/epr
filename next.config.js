@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["mongoose"],
+    typedRoutes: true,
 },
 images: {
     remotePatterns: [
@@ -11,7 +12,7 @@ images: {
  webpack(config) {
     config.experiments = {
       ...config.experiments,
-      topLevelAwait: true, // enable top-level-await experiment
+      topLevelAwait: true, 
     };
     return config;
   },
