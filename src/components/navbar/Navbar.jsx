@@ -19,7 +19,7 @@ const Navbar = () => {
               ? (
                 <div>
                   <Image src={person} width='45' height='45' alt='...' />
-                  <button onClick={() => {signOut(); handleHideDropdown()}}>Logout</button>
+                  <button onClick={() => {signOut()}}>Logout</button>
                       <p><Link href='/'>Create</Link></p>
                       <p><Link href='/dashboard/queue'>Dashbopard</Link></p>                    
                 </div>
@@ -27,8 +27,8 @@ const Navbar = () => {
               : (
                 <>
                   <button onClick={() => {signIn()}}>Log in</button>
-                  <Link href='/register'>Register</Link>
-                  <Link href='/dashboard/queue'>Dashbopard</Link>
+                  <p><Link href='/register'>Register</Link></p>
+                  <p><Link href='/dashboard/queue'>Dashbopard</Link></p>
                 </>
               )
           }
