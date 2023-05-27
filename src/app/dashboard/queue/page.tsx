@@ -11,7 +11,7 @@ const ClientProtectPage = () => {
   const { data: session, status } = useSession({
     required: true,
     onUnauthenticated() {
-      redirect('/login?callbackUrl=/dashboard/queue')
+      redirect('/signin?callbackUrl=/dashboard/queue')
     }
   })
 

@@ -25,7 +25,7 @@ const Navbar = () => {
                   <Image src={person} width='45' height='45' alt='...' />
                   <button onClick={() => {signOut()}}>Logout</button>
                       <p><Link href='/'>Create</Link></p>
-                      <p><Link href='/dashboard/queue'>Dashbopard</Link></p>                    
+                      <p><Link href='/dashboard/queue'>Dashboard</Link></p>                    
                 </div>
               )
               : (
