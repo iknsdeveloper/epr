@@ -28,7 +28,7 @@ const Navbar = () => {
                 <>
                   <button onClick={() => {signIn()}}>Log in</button>
                   <p><Link href='/register'>Register</Link></p>
-                  <p><Link href='/dashboard/queue'>Dashbopard</Link></p>
+                  <p><Link href='/dashboard/queue'>Dashboard</Link></p>
                 </>
               )
           }
