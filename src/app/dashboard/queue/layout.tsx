@@ -1,5 +1,6 @@
 import '../../globals.css'
 import Provider from '@/SessionProvider'
+import { ReduxProvider } from '@/app/globalredux/provider'
 import Navbar from '@/components/navbar/Navbar'
 
 export const metadata = {
@@ -10,11 +11,11 @@ export const metadata = {
 export default function Layout({
   children }: { children: React.ReactNode }) {
   return (
-
-    <Provider>
-      <Navbar />
-      {children}
-    </Provider>
-
+    <ReduxProvider>
+      <Provider>
+        <Navbar />
+        {children}
+      </Provider>
+    </ReduxProvider>
   )
 }

@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["mongoose"],
-    typedRoutes: true,
+    // typedRoutes: true,
 },
 images: {
     remotePatterns: [

@@ -4,8 +4,12 @@ import Link from 'next/link'
 import person from '../../../public/person.jpg'
 import {signIn, signOut, useSession} from 'next-auth/react'
 
+
+
 const Navbar = () => {
   const {data: session} = useSession()
+
+
 
   return (
     <div>

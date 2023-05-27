@@ -1,4 +1,5 @@
 import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from 'next-auth/providers/credentials'
 import User from "@/models/User";
 import { signJwtToken } from "@/lib/jwt";
@@ -7,6 +8,10 @@ import db from "@/lib/db";
 
 const handler = NextAuth({
     providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET 
+          }),
         CredentialsProvider({
             type: 'credentials',
             credentials: {
@@ -46,7 +51,7 @@ const handler = NextAuth({
     ],
     secret: process.env.NEXT_PUBLIC_SECRET,
     pages: {
-        signIn: '/login'
+        signIn: '/'
     },
     callbacks: {
         async jwt({ token, user }) {

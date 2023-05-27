@@ -38,6 +38,11 @@ const Login = () => {
 		}
 	}
 
+	async function handleGoogleSignin() {
+		signIn("google", { callbackUrl: process.env.NEXT_PUBLIC_DASHBOARD });
+	}
+
+
 	return (
 		<>
 			<section className="bg-gray-50">
@@ -69,6 +74,11 @@ const Login = () => {
 									<a href="#" className="text-sm font-medium text-primary-600 hover:underline">Forgot password?</a>
 								</div>
 								<button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+
+								<button type="button" onClick={handleGoogleSignin} className="w-full py-3.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-300 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">
+									Sign in with IKNS Email
+								</button>
+
 								<p className="text-sm font-light text-gray-500">
 									Don&#39;t have an account yet? <Link href="/register" className="font-medium text-primary-600 hover:underline">Sign up</Link>
 								</p>
